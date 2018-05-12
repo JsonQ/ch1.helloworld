@@ -27,6 +27,7 @@ public class HelloValidated {
         System.out.println(form.getId());
         System.out.println(form.getName());
         System.out.println(form.getEmail());
+        System.out.println(form.getWorkTime());
 
         if(brst.hasErrors()){
             List<ObjectError> err = brst.getAllErrors();

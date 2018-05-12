@@ -1,5 +1,7 @@
 package com.chris.ch1.entity.logicbean;
 
+import com.chris.ch1.annotation.WorkOverTime;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
@@ -14,11 +16,14 @@ public class WorkInfoForm {
     @Null(groups={Add.class})
     private Long id;
 
-    @Size(min=3, max=20)
+    @Size(min=3, max=20, groups={Add.class})
     private String name;
 
-    @Email(groups={Add.class})
+    @Email
     private String email;
+
+    @WorkOverTime(groups={Add.class})
+    private int workTime;
 
     public Long getId() {
         return id;
@@ -42,5 +47,13 @@ public class WorkInfoForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getWorkTime() {
+        return workTime;
+    }
+
+    public void setWorkTime(int workTime) {
+        this.workTime = workTime;
     }
 }
