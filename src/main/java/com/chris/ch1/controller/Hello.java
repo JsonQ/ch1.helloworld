@@ -1,7 +1,7 @@
 package com.chris.ch1.controller;
 
 import com.chris.ch1.entity.Order;
-import com.chris.ch1.entity.logicbean.OrderPostForm;
+import com.chris.ch1.reflecttest.t1.XiaoMing;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/test")
@@ -85,12 +84,26 @@ public class Hello {
 
     @InitBinder
     protected void initBinder(WebDataBinder binder){
-        binder.addCustomFormatter(new DateFormatter("yyyy-MM-dd"));
+        binder.addCustomFormatter(new DateFormatter("yyyy-MM-DDTHH-8:mm:ss"));
     }
 
     @RequestMapping(path="bind")
     @ResponseBody
     public void printDate(@RequestParam Date d){
         System.out.println(d);
+    }
+
+    @RequestMapping("/formatter")
+    @ResponseBody
+    public String formatter(@RequestBody XiaoMing xiaoming){
+
+        Date birthday = xiaoming.getBirthday();
+        System.out.println("xiaoming birthday: " + birthday);
+        return "success!";
+    }
+
+    @RequestMapping("/")
+    public String index(){
+        return "/index.btl";
     }
 }

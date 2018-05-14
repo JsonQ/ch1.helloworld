@@ -1,9 +1,12 @@
 package com.chris.ch1.reflecttest.t1;
 
+import java.util.Date;
+
 public class Person {
 
     private String name;
-    private int age;
+    private int    age;
+    private Date   birthday;
 
     public Person(){}
 
@@ -26,5 +29,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
