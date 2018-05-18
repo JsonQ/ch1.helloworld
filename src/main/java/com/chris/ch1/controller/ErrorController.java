@@ -8,9 +8,15 @@
 //import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 //import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.servlet.ModelAndView;
 //
+//import javax.lang.model.type.ErrorType;
 //import javax.servlet.ServletException;
 //import javax.servlet.http.HttpServletRequest;
+//import javax.servlet.http.HttpServletResponse;
+//import java.util.Collections;
+//import java.util.HashMap;
+//import java.util.Map;
 //
 //@Controller
 //public class ErrorController extends AbstractErrorController {
@@ -27,33 +33,31 @@
 //
 //    @Override
 //    @RequestMapping(ERROR_PATH)
-//    public String getErrorPath() {
-////        Map<String, Object> model = Collections.unmodifiableMap(super.getErrorAttributes(request, false));
-////        Throwable cause = getCause(request);
-////        int status = (Integer)model.get("status");
-////        String message = (String)model.get("messages");
-////        String errorMessage = getErrorMessage(cause);
-////
-////        log.info(status + ", " + message, cause);
-////        response.setStatus(status);
-////
-////        if(!isJsonRequest(request)){
-////            ModelAndView view = new ModelAndView("/error.btl");
-////            view.addAllObjects(model);
-////            view.addObject("errorMessage", errorMessage);
-////            view.addObject("status", status);
-////            view.addObject("cause", cause);
-////            return view;
-////        }else{
-////            Map error = new HashMap();
-////            error.put("success", false);
-////            error.put("errorMessage", errorMessage);
-////            error.put("message", message);
-////            WriteJson(response, error);
-////            return null;
-////        }
+//    public ModelAndView getErrorPath() {
+//        Map<String, Object> model = Collections.unmodifiableMap(super.getErrorAttributes(request, false));
+//        Throwable cause = getCause(request);
+//        int status = (Integer)model.get("status");
+//        String message = (String)model.get("messages");
+//        String errorMessage = getErrorMessage(cause);
 //
-//        return null;
+//        log.info(status + ", " + message, cause);
+//        response.setStatus(status);
+//
+//        if(!isJsonRequest(request)){
+//            ModelAndView view = new ModelAndView("/error.btl");
+//            view.addAllObjects(model);
+//            view.addObject("errorMessage", errorMessage);
+//            view.addObject("status", status);
+//            view.addObject("cause", cause);
+//            return view;
+//        }else{
+//            Map error = new HashMap();
+//            error.put("success", false);
+//            error.put("errorMessage", errorMessage);
+//            error.put("message", message);
+//            WriteJson(response, error);
+//            return null;
+//        }
 //    }
 //
 //    protected Throwable getCause(HttpServletRequest request){
