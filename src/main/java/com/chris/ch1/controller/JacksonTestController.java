@@ -59,4 +59,11 @@ public class JacksonTestController {
         String str = objectMapper.writeValueAsString(user);
         return str;
     }
+
+    @RequestMapping(path="/parse.html")
+    @ResponseBody
+    public String parser(){
+        return null;
+    }
+
 }
