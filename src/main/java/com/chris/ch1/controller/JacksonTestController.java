@@ -1,6 +1,9 @@
 package com.chris.ch1.controller;
 
 import com.chris.ch1.entity.User;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,8 +65,19 @@ public class JacksonTestController {
 
     @RequestMapping(path="/parse.html")
     @ResponseBody
-    public String parser(){
-        return null;
+    public String parser()throws Exception{
+        JsonFactory f = objectMapper.getFactory();
+        String key = null, value = null;
+        JsonParser p = f.createParser(JSON);
+        JsonToken token = p.nextToken();
+        token = p.nextToken();
+        if(token == JsonToken.FIELD_NAME){
+            key = p.getCurrentName();
+        }
+        token = p.nextToken();
+        value = p.getValueAsString();
+        p.close();
+        return key + ", " + value + "\n";
     }
 
 }
