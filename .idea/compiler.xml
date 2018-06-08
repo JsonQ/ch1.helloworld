@@ -9,5 +9,8 @@
         <module name="ch1.helloworld" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ch1.helloworld" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -7,12 +7,18 @@ public class Person {
     private String name;
     private int    age;
     private Date   birthday;
+    private String sex;
 
     public Person(){}
 
     public Person(String name, int age){
         this.name = name;
         this.age = age;
+    }
+
+    public Person(String name, String sex){
+        this.name = name;
+        this.sex = sex;
     }
 
     public String getName() {
