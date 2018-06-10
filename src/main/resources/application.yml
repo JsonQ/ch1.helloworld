@@ -12,6 +12,11 @@ spring:
       max-wait: 100000
     #password: Redis!123
     timeout: 0
+  #cache:
+   # type: Nore
+  session:
+    store-type: Redis
+
 
 
 
